@@ -20,7 +20,7 @@ const ResultsShowScreen = ({ navigation }) => {
   }
   return (
     <View>
-      <Text>Results show</Text>
+      <Text style={styles.text}>{result.name}</Text>
       <FlatList
         data={result.photos}
         keyExtractor={(photo) => photo}
@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
     height: 200,
     width: 300,
     marginVertical: 10,
+  },
+  text: {
+    marginBottom: 10,
   },
 });
 

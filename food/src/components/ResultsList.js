@@ -1,6 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import { withNavigation } from "react-navigation";
 import ResultsDetail from "./ResultsDetail";
 
