@@ -36,10 +36,13 @@ const styles = StyleSheet.create({
   image: {
     height: 200,
     width: 300,
-    marginVertical: 10,
+    marginVertical: 5,
+    alignSelf: "center",
   },
   text: {
     marginBottom: 10,
+    textAlign: "center",
+    fontSize: 20,
   },
 });
 
