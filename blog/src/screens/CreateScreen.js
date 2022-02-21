@@ -10,9 +10,11 @@ import {
 import { Context } from "../context/BlogContext";
 import { Feather } from "@expo/vector-icons";
 
-const CreateScreen = () => {
+const CreateScreen = ({ navigation }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
+  const { addBlogPost } = useContext(Context);
 
   return (
     <View style={styles.container}>
@@ -29,7 +31,15 @@ const CreateScreen = () => {
         onChangeText={(text) => setContent(text)}
       />
       <View style={styles.button}>
-        <Button color="#5EBA7D" title="Add Blog Post" />
+        <Button
+          color="#5EBA7D"
+          title="Add Blog Post"
+          onPress={() => {
+            addBlogPost(title, content, () => {
+              navigation.navigate("Index");
+            });
+          }}
+        />
       </View>
     </View>
   );
