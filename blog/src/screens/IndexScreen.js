@@ -14,7 +14,14 @@ const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost, deleteBlogPost } = useContext(Context);
   return (
     <View>
-      <Button title="Add Post" onPress={addBlogPost} />
+      <View style={styles.button}>
+        <Button
+          color="#5EBA7D"
+          title="Add Post"
+          onPress={addBlogPost}
+          marginHorizontal={5}
+        />
+      </View>
       <FlatList
         data={state}
         keyExtractor={(blogPost) => blogPost.id}
@@ -40,10 +47,10 @@ const IndexScreen = ({ navigation }) => {
   );
 };
 
-IndexScreen.navigationOptions = () => {
+IndexScreen.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Create")}>
         <Feather style={styles.plus} name="plus-circle" size={30} />
       </TouchableOpacity>
     ),
@@ -58,7 +65,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     paddingHorizontal: 5,
     borderWidth: 1,
-    borderColor: "gray",
+    borderColor: "#5EBA7D",
+    backgroundColor: "white",
+    borderRadius: 5,
   },
   space: {
     marginVertical: 10,
@@ -71,8 +80,12 @@ const styles = StyleSheet.create({
     color: "red",
   },
   plus: {
-    marginRight: 100,
-    color: "green",
+    marginRight: 10,
+    color: "#5EBA7D",
+  },
+  button: {
+    marginHorizontal: 5,
+    marginTop: 10,
   },
 });
 
