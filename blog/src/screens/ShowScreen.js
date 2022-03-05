@@ -20,7 +20,7 @@ const ShowScreen = ({ navigation }) => {
 ShowScreen.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => (
-      <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Edit")}>
         <Feather style={styles.edit} name="edit" size={30} />
       </TouchableOpacity>
     ),
