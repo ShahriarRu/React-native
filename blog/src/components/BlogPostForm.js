@@ -1,20 +1,9 @@
 import React, { useContext, useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  TouchableOpacity,
-  TextInput,
-} from "react-native";
-//import { Context } from "../context/BlogContext";
-import { Feather } from "@expo/vector-icons";
+import { View, Text, StyleSheet, Button, TextInput } from "react-native";
 
-const BloPostForm = ({ navigation }) => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-
-  //const { addBlogPost } = useContext(Context);
+const BlogPostForm = ({ onSubmit, initialValues }) => {
+  const [title, setTitle] = useState(initialValues.title);
+  const [content, setContent] = useState(initialValues.content);
 
   return (
     <View style={styles.container}>
@@ -31,10 +20,21 @@ const BloPostForm = ({ navigation }) => {
         onChangeText={(text) => setContent(text)}
       />
       <View style={styles.button}>
-        <Button color="#5EBA7D" title="Add Blog Post" onPress={() => {}} />
+        <Button
+          color="#5EBA7D"
+          title="Save Blog Post"
+          onPress={() => onSubmit(title, content)}
+        />
       </View>
     </View>
   );
+};
+
+BlogPostForm.defaultProps = {
+  initialValues: {
+    title: "",
+    content: "",
+  },
 };
 
 const styles = StyleSheet.create({
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BloPostForm;
+export default BlogPostForm;

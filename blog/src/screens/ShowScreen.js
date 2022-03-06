@@ -1,5 +1,11 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { Context } from "../context/BlogContext";
 import { Feather, EvilIcons } from "@expo/vector-icons";
 
@@ -10,10 +16,10 @@ const ShowScreen = ({ navigation }) => {
   );
 
   return (
-    <View>
-      <Text>Title: {blogPost.title}</Text>
-      <Text>Content: {blogPost.content}</Text>
-    </View>
+    <ScrollView>
+      <Text style={styles.title}>{blogPost.title}</Text>
+      <Text style={styles.content}>Content: {blogPost.content}</Text>
+    </ScrollView>
   );
 };
 
@@ -35,6 +41,19 @@ const styles = StyleSheet.create({
   edit: {
     marginRight: 10,
     color: "#5EBA7D",
+  },
+  title: {
+    fontSize: 30,
+    textAlign: "center",
+    marginBottom: 10,
+    padding: 5,
+    fontWeight: "bold",
+  },
+  content: {
+    fontSize: 16,
+    margin: 5,
+    letterSpacing: 1,
+    lineHeight: 25,
   },
 });
 
